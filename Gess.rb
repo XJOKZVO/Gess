@@ -3,7 +3,7 @@ require 'optparse'
 require 'colorize'
 require 'artii'
 require 'resolv'
-require 'thread'
+
 # Define color constants
 RED = "\033[1;31m"
 GREEN = "\033[1;32;0m"
@@ -73,6 +73,7 @@ read_words.close
 if sub_list.length > 0
   puts "#{WHITE}\n[!] Total #{sub_list.length} Targets Loaded [!]\033[94m"
   puts "#{WHITE}[!] Checking For Subdomain Takeover..... [!]\n\033[94m"
+
   # Define vulnerable contents
   vuln_contents = [
     "<strong>Trying to access your account",
@@ -231,8 +232,8 @@ if sub_list.length > 0
         valid << domain
         non_vulnerable_domains << domain
       end
-    rescue StandardError => e
-      puts "#{RED}!! Error => #{domain} - #{e.message}\033[94m \n"
+    rescue StandardError
+      puts "#{RED}!! Error => #{domain}\033[94m \n"
       suspended_domains << domain
     end
   end
@@ -245,12 +246,12 @@ if sub_list.length > 0
   threads.each(&:join) # Wait for all threads to finish
 
   # Display vulnerable, non-vulnerable, and error domains
-  puts "\nVulnerable Domains:" unless vulnerable_domains.empty?
-  puts vulnerable_domains.join("\n").colorize(:green) unless vulnerable_domains.empty?
-  puts "\nNon-Vulnerable Domains:" unless non_vulnerable_domains.empty?
-  puts non_vulnerable_domains.join("\n").colorize(:blue) unless non_vulnerable_domains.empty?
-  puts "\nError Domains:" unless suspended_domains.empty?
-  puts suspended_domains.join("\n").colorize(:red) unless suspended_domains.empty?
+  puts "\nVulnerable Domains:"
+  puts vulnerable_domains.join("\n").colorize(:green) if vulnerable_domains.any?
+  puts "\nNon-Vulnerable Domains:"
+  puts non_vulnerable_domains.join("\n").colorize(:blue) if non_vulnerable_domains.any?
+  puts "\nError Domains:"
+  puts suspended_domains.join("\n").colorize(:red) if suspended_domains.any?
 
   # Display summary
   total_domains_checked = sub_list.length
