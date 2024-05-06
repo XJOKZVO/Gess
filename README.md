@@ -12,5 +12,3 @@ Ruby script here for scanning for subdomain takeover vulnerabilities. This scrip
 5.Summary: Finally, it prints a summary of the total number of domains checked, vulnerable domains, non-vulnerable domains, and error domains.
 
 6.File Handling: It writes the valid URLs to a file named "validUrls.txt" and writes vulnerable domains to a file named "Takeover.txt".
-
-7.Signal Handling: It handles the interruption signal (Ctrl+C) gracefully.
