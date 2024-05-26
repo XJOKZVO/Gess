@@ -15,7 +15,7 @@ options = {}
 
 # Set up command-line option parser
 parser = OptionParser.new do |opts|
-  opts.banner = "Usage: ruby ItsOver.rb [options]"
+  opts.banner = "Usage: ruby Gess.rb [options]"
 
   opts.on("-l LIST", "--list=LIST", "File containing a list of domains") do |list|
     options[:list] = list
