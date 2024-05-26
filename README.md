@@ -12,3 +12,16 @@ Ruby script here for scanning for subdomain takeover vulnerabilities. This scrip
 5.Summary: Finally, it prints a summary of the total number of domains checked, vulnerable domains, non-vulnerable domains, and error domains.
 
 6.File Handling: It writes the valid URLs to a file named "validUrls.txt" and writes vulnerable domains to a file named "Takeover.txt".
+# Installation
+```
+▶ https://github.com/XJOKZVO/Gess.git
+```
+# Options:
+```
+  Usage: ruby Gess.rb [options]
+    -l, --list=LIST                  File containing a list of domains
+```
+# Usage:
+```
+ruby Gess.rb -l urls.txt
+```
