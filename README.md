@@ -14,7 +14,7 @@ Ruby script here for scanning for subdomain takeover vulnerabilities. This scrip
 6.File Handling: It writes the valid URLs to a file named "validUrls.txt" and writes vulnerable domains to a file named "Takeover.txt".
 # Installation
 ```
-https://github.com/XJOKZVO/Gess.git
+git clone https://github.com/XJOKZVO/Gess.git
 ```
 # Options:
 ```
